@@ -50,7 +50,6 @@ class Aside extends Component {
             main.style.width = "100vw";
             main.style.marginLeft = 0;
         }
-        console.log(windowWidth)
         this.props.handleSearchCategory(category);
     }
 
