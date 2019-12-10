@@ -1,3 +1,335 @@
-body {
-    background: blue;
+/** Settings **/
+// Globals
+$base-grid: 24px;
+
+// Colors
+$color-primary: #2A0560;
+$color-secondary: #F83267;
+$color-white: #f4f4f4;
+$background-color-one: #3F32F8;
+$background-color-two: #7632DB;
+
+// Typography 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500|Roboto:400,500&display=swap');
+$font-roboto: 'Roboto',
+sans-serif;
+$font-montserrat: 'Montserrat',
+sans-serif;
+
+// Font Sizes
+$fsz-regular: 14px;
+$fsz-medium: 24px;
+$fsz-large: 48px;
+
+
+/** Tools **/
+@mixin setTextDimensions($fontSize) {
+    line-height: $fontSize*1.5;
+    letter-spacing: ($fontSize*1.5)/100;
 }
+
+/** Generic **/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/** Elements **/
+* {
+    box-sizing: border-box;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a,
+input,
+p,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    font-family: $font-roboto;
+}
+
+
+/** Objects **/
+// images 
+.img-container {
+    width: 100%;
+    height: 100%;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+//  buttons
+.btn {
+    color: $background-color-one;
+    background: $color-white;
+    padding: $base-grid/1.5 $base-grid;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+/** Components **/
+.aside {
+    width: 330px;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    background: $color-primary;
+    padding: $base-grid $base-grid*2;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: $base-grid;
+    box-shadow: 3px 0px 6px rgba($color: #000000, $alpha: .54);
+
+    .aside__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: $base-grid;
+        align-items: end;
+
+        .img-container {
+            width: 48px;
+            height: 48px;
+        }
+
+        .header__logo {
+            color: $color-white;
+            text-transform: lowercase;
+            font-family: $font-montserrat;
+            @include setTextDimensions($fsz-medium);
+        }
+    }
+
+    .aside__filters {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: $base-grid*2;
+
+        .filters__form {
+            .form__input {
+                background: $color-primary;
+                border-bottom: 2px solid $color-secondary;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: $base-grid/3;
+            }
+
+            .input__field {
+                padding: $base-grid/2 0;
+                background: transparent;
+                border: none;
+                color: $color-white;
+                font-size: $fsz-regular;
+                @include setTextDimensions($fsz-regular);
+            }
+
+            .input__icon {
+                color: $color-white;
+            }
+        }
+
+        .filters__list {
+            display: grid;
+            overflow-y: auto;
+
+            .list__item {
+                color: rgba($color-white, .54);
+                transition: all .3s;
+
+                &:hover {
+                    color: rgba($color-white, .87);
+                }
+            }
+        }
+
+
+    }
+
+    .aside__footer {
+        .footer__link {
+            font-size: $fsz-medium;
+            color: rgba($color-secondary, .87);
+            margin-right: $base-grid;
+        }
+    }
+}
+
+.main {
+    margin-left: 330px;
+    width: calc(100vw - 330px);
+    height: 100vh;
+    position: relative;
+
+
+    .main__quotes {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: $background-color-two, $alpha: .7);
+        padding: 0 15%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        .quotes__quote {
+            font-size: $fsz-large;
+            color: $color-white;
+            font-family: $font-montserrat;
+            text-align: center;
+            margin-bottom: $base-grid;
+            @include setTextDimensions(($fsz-large));
+        }
+
+
+    }
+}
+
+/** Trumps **/

@@ -1,5 +1,287 @@
-body {
-  background: blue;
+/** Settings **/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500|Roboto:400,500&display=swap");
+/** Tools **/
+/** Generic **/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/** Elements **/
+* {
+  box-sizing: border-box;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+a,
+input,
+p,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  font-family: "Roboto", sans-serif;
+}
+
+/** Objects **/
+.img-container {
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  color: #3F32F8;
+  background: #f4f4f4;
+  padding: 16px 24px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+/** Components **/
+.aside {
+  width: 330px;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  background: #2A0560;
+  padding: 24px 48px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+  box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.54);
+}
+.aside .aside__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: end;
+}
+.aside .aside__header .img-container {
+  width: 48px;
+  height: 48px;
+}
+.aside .aside__header .header__logo {
+  color: #f4f4f4;
+  text-transform: lowercase;
+  font-family: "Montserrat", sans-serif;
+  line-height: 36px;
+  letter-spacing: 0.36px;
+}
+.aside .aside__filters {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 48px;
+}
+.aside .aside__filters .filters__form .form__input {
+  background: #2A0560;
+  border-bottom: 2px solid #F83267;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+.aside .aside__filters .filters__form .input__field {
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  color: #f4f4f4;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.21px;
+}
+.aside .aside__filters .filters__form .input__icon {
+  color: #f4f4f4;
+}
+.aside .aside__filters .filters__list {
+  display: grid;
+  overflow-y: auto;
+}
+.aside .aside__filters .filters__list .list__item {
+  color: rgba(244, 244, 244, 0.54);
+  transition: all 0.3s;
+}
+.aside .aside__filters .filters__list .list__item:hover {
+  color: rgba(244, 244, 244, 0.87);
+}
+.aside .aside__footer .footer__link {
+  font-size: 24px;
+  color: rgba(248, 50, 103, 0.87);
+  margin-right: 24px;
+}
+
+.main {
+  margin-left: 330px;
+  width: calc(100vw - 330px);
+  height: 100vh;
+  position: relative;
+}
+.main .main__quotes {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(118, 50, 219, 0.7);
+  padding: 0 15%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.main .main__quotes .quotes__quote {
+  font-size: 48px;
+  color: #f4f4f4;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 72px;
+  letter-spacing: 0.72px;
+}
+
+/** Trumps **/
 
 /*# sourceMappingURL=index.css.map */
