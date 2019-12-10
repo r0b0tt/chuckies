@@ -48,10 +48,16 @@ class Main extends Component {
     toggleSidebar = e => {
         e.preventDefault();
         let aside = document.getElementsByClassName("aside")[0];
-        aside.style.display = "grid";
         let main = document.getElementsByClassName("main")[0];
-        main.style.marginLeft = "330px";
-        main.style.opacity = .38;
+
+        if (aside.style.display === "grid") {
+            aside.style.display = "none";
+            main.style.marginLeft = 0;
+        } else {
+            aside.style.display = "grid"
+            main.style.marginLeft = "330px";
+        }
+
 
     }
 
@@ -75,23 +81,24 @@ class Main extends Component {
 
                                 <p className="quotes__quote">"{this.props.randomQuote.value}"</p>
 
-                                <a href={`https://twitter.com/intent/tweet?text=${this.props.randomQuote.value}`} className="btn" target="_blank" rel="noopener noreferrer">Share on twitter</a>
+                                <a href={`https://twitter.com/intent/tweet?text="${this.props.randomQuote.value}" - chuckies.netlify.com`} className="btn" target="_blank" rel="noopener noreferrer">Share on twitter</a>
                             </div>
                             :
                             this.state.currentDisplay === "search" ?
                                 <div className="main__quotes">
                                     <p className="quotes__quote">"{radomSearchQuote.value}"</p>
 
-                                    <a href={`https://twitter.com/intent/tweet?text=${radomSearchQuote.value}`} className="btn" target="_blank" rel="noopener noreferrer">Share on twitter</a>
+                                    <a href={`https://twitter.com/intent/tweet?text="${radomSearchQuote.value}" - chuckies.netlify.com`} className="btn" target="_blank" rel="noopener noreferrer">Share on twitter</a>
                                 </div>
                                 : this.state.currentDisplay === "category" ?
                                     <div className="main__quotes">
                                         <p className="quotes__quote">"{this.state.categoryResult.value}"</p>
 
-                                        <a href={`https://twitter.com/intent/tweet?text=${this.state.categoryResult.value}`} className="btn" target="_blank" rel="noopener noreferrer">Share on twitter</a>
+                                        <a href={`https://twitter.com/intent/tweet?text="${this.state.categoryResult.value}" - chuckies.netlify.com`} className="btn" target="_blank" rel="noopener noreferrer">Share on twitter</a>
                                     </div>
                                     : null
                     }
+                    <button className="categories__button" onClick={this.toggleSidebar}>Toggle Categories</button>
                 </main>
             </section>
         )

@@ -225,6 +225,7 @@ span {
     border-radius: 5px;
 }
 
+
 /** Components **/
 .aside {
     width: 330px;
@@ -239,9 +240,11 @@ span {
     gap: $base-grid;
     box-shadow: 3px 0px 6px rgba($color: #000000, $alpha: .54);
 
-    @media screen and (max-width: $tablet) {
+    @include breakpoint($tablet) {
         display: none;
     }
+
+
 
     .aside__header {
         display: grid;
@@ -335,12 +338,27 @@ span {
     width: calc(100vw - 330px);
     height: 100vh;
     position: relative;
+    overflow: hidden;
 
-    @media screen and (max-width: $tablet) {
+    @include breakpoint($tablet) {
         margin-left: 0;
         width: 100vw;
     }
 
+    .categories__button {
+        position: absolute;
+        top: 0;
+        padding: $base-grid/2 $base-grid;
+        border-color: transparent;
+        background: $color-white;
+        text-transform: uppercase;
+        display: none;
+        cursor: pointer;
+
+        @include breakpoint($tablet) {
+            display: block;
+        }
+    }
 
     .main__quotes {
         position: absolute;
@@ -361,6 +379,11 @@ span {
             text-align: center;
             margin-bottom: $base-grid;
             @include setTextDimensions(($fsz-large));
+
+            @include breakpoint($tablet) {
+                font-size: $fsz-medium;
+                @include setTextDimensions(($fsz-medium));
+            }
         }
 
 

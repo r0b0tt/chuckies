@@ -41,6 +41,16 @@ class Aside extends Component {
         }
 
         e.target.classList.add("list__item--active");
+
+        let aside = document.getElementsByClassName("aside")[0];
+        let main = document.getElementsByClassName("main")[0];
+        let windowWidth = window.innerWidth;
+        if (windowWidth <= 768) {
+            aside.style.display = "none";
+            main.style.width = "100vw";
+            main.style.marginLeft = 0;
+        }
+        console.log(windowWidth)
         this.props.handleSearchCategory(category);
     }
 
@@ -73,10 +83,10 @@ class Aside extends Component {
                 </div>
 
                 <div className="aside__footer">
-                    <a href="/" className="footer__link">
+                    <a href="https://github.com/r0b0tt/chuckies" target="_blank" rel="noopener noreferrer" className="footer__link">
                         <FontAwesomeIcon icon={faGithub} />
                     </a>
-                    <a href="/" className="footer__link">
+                    <a href="https://twitter.com/__r0b0t__" target="_blank" rel="noopener noreferrer" className="footer__link">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
                 </div>
