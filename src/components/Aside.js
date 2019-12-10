@@ -34,6 +34,13 @@ class Aside extends Component {
 
     handleSearchCategory = (e, category) => {
         e.preventDefault();
+        let listItems = document.getElementsByClassName("list__item");
+        for (let index = 0; index < listItems.length; index++) {
+            const element = listItems[index];
+            element.classList.remove("list__item--active");
+        }
+
+        e.target.classList.add("list__item--active");
         this.props.handleSearchCategory(category);
     }
 

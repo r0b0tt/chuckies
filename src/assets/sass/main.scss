@@ -2,6 +2,12 @@
 // Globals
 $base-grid: 24px;
 
+// Breakpoints
+$laptop_hd: 1440px;
+$laptop: 1366px;
+$tablet: 768px;
+$mobile: 500px;
+
 // Colors
 $color-primary: #2A0560;
 $color-secondary: #F83267;
@@ -26,6 +32,12 @@ $fsz-large: 36px;
 @mixin setTextDimensions($fontSize) {
     line-height: $fontSize*1.5;
     letter-spacing: ($fontSize*1.5)/100;
+}
+
+@mixin breakpoint($maxWidth) {
+    @media screen and (max-width: $maxWidth) {
+        @content
+    }
 }
 
 /** Generic **/
@@ -219,12 +231,17 @@ span {
     height: 100vh;
     position: fixed;
     overflow: hidden;
+    z-index: 999;
     background: $color-primary;
     padding: $base-grid $base-grid*2;
     display: grid;
     grid-template-rows: auto 1fr auto;
     gap: $base-grid;
     box-shadow: 3px 0px 6px rgba($color: #000000, $alpha: .54);
+
+    @media screen and (max-width: $tablet) {
+        display: none;
+    }
 
     .aside__header {
         display: grid;
@@ -248,7 +265,8 @@ span {
     .aside__filters {
         display: grid;
         grid-template-rows: auto 1fr;
-        gap: $base-grid*2;;
+        gap: $base-grid*2;
+        ;
 
         .filters__form {
             .form__input {
@@ -285,6 +303,18 @@ span {
                 &:hover {
                     color: rgba($color-white, .87);
                 }
+
+
+            }
+
+            .list__item--active {
+                color: rgba($color-secondary, .78);
+
+                &:before {
+                    content: "\00b7";
+                    margin-right: $base-grid/2;
+
+                }
             }
         }
 
@@ -305,6 +335,11 @@ span {
     width: calc(100vw - 330px);
     height: 100vh;
     position: relative;
+
+    @media screen and (max-width: $tablet) {
+        margin-left: 0;
+        width: 100vw;
+    }
 
 
     .main__quotes {
