@@ -1,0 +1,2 @@
+export const ADD_CATEGORIES = 'ADD_CATEGORIES';
+export const ADD_RANDOM_QUOTE = 'ADD_RANDOM_QUOTE';

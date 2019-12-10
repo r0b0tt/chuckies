@@ -19,7 +19,7 @@ sans-serif;
 // Font Sizes
 $fsz-regular: 14px;
 $fsz-medium: 24px;
-$fsz-large: 48px;
+$fsz-large: 36px;
 
 
 /** Tools **/
@@ -248,7 +248,7 @@ span {
     .aside__filters {
         display: grid;
         grid-template-rows: auto 1fr;
-        gap: $base-grid*2;
+        gap: $base-grid*2;;
 
         .filters__form {
             .form__input {

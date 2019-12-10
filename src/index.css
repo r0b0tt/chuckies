@@ -273,13 +273,13 @@ span {
   justify-content: center;
 }
 .main .main__quotes .quotes__quote {
-  font-size: 48px;
+  font-size: 36px;
   color: #f4f4f4;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   margin-bottom: 24px;
-  line-height: 72px;
-  letter-spacing: 0.72px;
+  line-height: 54px;
+  letter-spacing: 0.54px;
 }
 
 /** Trumps **/
